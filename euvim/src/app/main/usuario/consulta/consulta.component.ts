@@ -11,16 +11,29 @@ import { UsuarioService } from '../usuario.service';
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.scss']
 })
+
 export class ConsultaComponent implements OnInit {
 
   public displayedColumns = ['nome', 'login', 'email', 'perfil', 'id'];
   public dataSource = null;
 
   constructor(private _usuarioService: UsuarioService) {
-    this.dataSource = new MatTableDataSource<any>(this._usuarioService.listar());
+    
+  }
+
+  private obterLista() {
+    let lista = this._usuarioService.listar();
+    this.dataSource = new MatTableDataSource<any>(lista);
+  }
+
+  public excluir (id) {
+    console.log(`Id para exclusão: ${id}`);
+    this._usuarioService.excluir(id);
+    this.obterLista();
   }
 
   ngOnInit() {
+    this.obterLista();
   }
 
 }

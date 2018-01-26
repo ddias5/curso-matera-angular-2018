@@ -16,6 +16,7 @@ export class UsuarioService {
   public carregar(id) {
     return this.mock.find(user => user.id === id);
   }
+
   public adicionar(usuario) {
     let newId = 0;
     this.mock.forEach(user => {
@@ -24,13 +25,16 @@ export class UsuarioService {
     usuario.id = newId;
     this.mock.push(usuario);
   }
+
   public excluir(id) {
     this.mock.splice(this.mock.findIndex(user => user.id = id), 1);
   }
+
   public editar(usuario) {
     let i = this.mock.findIndex(user => user.id == usuario.id);
     if (i > -1) this.mock[i] = usuario;
   }
+  
   public listar() {
     return this.mock;
   }
