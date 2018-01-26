@@ -4,8 +4,5 @@
 ![NPM 5](https://img.shields.io/badge/npm-5.6.0-orange.svg)
 ![Angular 5](https://img.shields.io/badge/angular-5.0.0-red.svg)
 
-### [Aula 01](aulas/aula01.md)
 
-### [Aula 02](aulas/aula02.md)
-
-### [Aula 03](aulas/aula03.md)
+> [Apresentação / Aulas](https://arthurfritz.github.io/curso-ferias-2018/)
