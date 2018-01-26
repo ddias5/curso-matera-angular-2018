@@ -18,7 +18,7 @@ export class ConsultaComponent implements OnInit {
   public dataSource = null;
 
   constructor(private _usuarioService: UsuarioService) {
-    
+
   }
 
   private obterLista() {
@@ -26,7 +26,7 @@ export class ConsultaComponent implements OnInit {
     this.dataSource = new MatTableDataSource<any>(lista);
   }
 
-  public excluir (id) {
+  public excluir(id) {
     console.log(`Id para exclusão: ${id}`);
     this._usuarioService.excluir(id);
     this.obterLista();
