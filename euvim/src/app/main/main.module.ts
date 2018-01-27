@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule, FormBuilder } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { MainComponent } from './main.component';
 import { MainRouting } from './main.routing';
@@ -29,12 +30,14 @@ import { UsuarioService } from './usuario/usuario.service';
     MatSelectModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [MainComponent, ConsultaComponent, FormularioComponent],
   providers: [
     FormBuilder,
-    UsuarioService
+    UsuarioService,
+    HttpClient
   ]
 })
 export class MainModule { }

@@ -5,6 +5,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulta',
@@ -17,19 +18,31 @@ export class ConsultaComponent implements OnInit {
   public displayedColumns = ['nome', 'login', 'email', 'perfil', 'id'];
   public dataSource = null;
 
-  constructor(private _usuarioService: UsuarioService) {
+  constructor(
+    private _usuarioService: UsuarioService,
+    private _router: Router
+  ) {
 
   }
 
   private obterLista() {
-    let lista = this._usuarioService.listar();
-    this.dataSource = new MatTableDataSource<any>(lista);
+    let lista =
+      this._usuarioService
+        .listar()
+        .subscribe(ok => {
+          this.dataSource = new MatTableDataSource<any>(ok)
+        }, erro => console.log(erro));
   }
 
   public excluir(id) {
-    console.log(`Id para exclusão: ${id}`);
-    this._usuarioService.excluir(id);
-    this.obterLista();
+    this._usuarioService.excluir(id)
+      .subscribe(ok => {
+        this.obterLista();
+      });
+  }
+
+  public editar(id) {
+    this._router.navigate(['/main/usuario/editar', id]);
   }
 
   ngOnInit() {

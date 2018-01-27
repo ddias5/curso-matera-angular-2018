@@ -29,6 +29,7 @@
         class="buttons"
       >
         <button
+          (click)="editar(element.id)"
           mat-icon-button
           color="primary"
           mdTooltip="Editar"
@@ -41,7 +42,12 @@
           color="danger"
           mdTooltip="Excluir"
         >
-            <mat-icon class="mat-24" aria-label="Excluir">delete</mat-icon>
+            <mat-icon
+              class="mat-24"
+              aria-label="Excluir"
+            >
+              delete
+            </mat-icon>
         </button>
       </mat-cell>
     </ng-container>
