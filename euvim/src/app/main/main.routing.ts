@@ -11,16 +11,12 @@ import { FormularioComponent } from './usuario/formulario/formulario.component';
         component: MainComponent,
         children: [
           {
-            path: 'usuario/consulta',
-            component: ConsultaComponent
+            path: 'usuario',
+            loadChildren: './usuario/usuario.module#UsuarioModule'
           },
           {
-            path: 'usuario/adicionar',
-            component: FormularioComponent
-          },
-          {
-            path: 'usuario/editar/:id',
-            component: FormularioComponent
+            path: 'disciplina',
+            loadChildren: './disciplina/disciplina.module#DisciplinaModule'
           }
         ]
       }
