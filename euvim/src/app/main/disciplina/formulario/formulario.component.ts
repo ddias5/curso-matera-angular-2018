@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EqualsPasswordValidator } from './../../../validators/equalsPasword.validator';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisciplinaService } from '../disciplina.service';
 
@@ -12,23 +11,14 @@ import { DisciplinaService } from '../disciplina.service';
 
 export class FormularioComponent implements OnInit {
 
-  public perfis: Perfil[] = [
-    {
-      id: "PROFESSOR",
-      descricao: "Professor"
-    },
-    {
-      id: "ADMINISTRADOR",
-      descricao: "Administrador"
-    },
-    {
-      id: "ALUNO",
-      descricao: "Aluno"
-    }
-  ]
-
   public form: FormGroup;
   public id;
+
+  public segmentos = [
+    { id: 'BACKEND', descricao: 'Back-end' },
+    { id: 'FRONTEND', descricao: 'Front-end' },
+    { id: 'MOBILE', descricao: 'Mobile' }
+  ];
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -37,19 +27,14 @@ export class FormularioComponent implements OnInit {
     private _router: Router
   ) {
     this.form = this._formBuilder.group({
-      id: '',
-      nome: ['', Validators.required],
-      email: ['', Validators.compose([
-        Validators.required,
-        Validators.email
-      ])],
-      login: ['', Validators.required],
-      perfil: ['', Validators.required],
-      senha: ['', Validators.required],
-      confirmacao: ['', Validators.required]
-    }, {
-        validator: EqualsPasswordValidator.validate('senha', 'confirmacao')
-      })
+      id: [''],
+      descricao: ['', Validators.required],
+      instrutores: this._formBuilder.array([]),
+      dataInicio: ['', Validators.required],
+      dataTermino: ['', Validators.required],
+      segmento: ['', Validators.required],
+      urlLogo: ['']
+    })
   }
 
   ngOnInit() {

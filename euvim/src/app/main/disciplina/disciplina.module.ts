@@ -14,7 +14,8 @@ import {
   MatSelectModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatButtonModule
+  MatButtonModule,
+  MatInputModule
 } from '@angular/material';
 import { DisciplinaService } from './disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -35,6 +36,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatIconModule,
     MatSelectModule,
     MatButtonModule,
+    MatInputModule,
     FlexLayoutModule
   ],
   providers: [
