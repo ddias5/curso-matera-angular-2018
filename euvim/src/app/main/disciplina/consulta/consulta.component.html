@@ -10,11 +10,11 @@
     </ng-container>
     <ng-container matColumnDef="dataInicio">
       <mat-header-cell *matHeaderCellDef>Data início</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.dataInicio}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.dataInicio | date:'dd/MM/yyyy'}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="dataTermino">
       <mat-header-cell *matHeaderCellDef>Data término</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.dataTermino}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.dataTermino | date:'dd/MM/yyyy'}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="segmento">
       <mat-header-cell *matHeaderCellDef>Segmento</mat-header-cell>
