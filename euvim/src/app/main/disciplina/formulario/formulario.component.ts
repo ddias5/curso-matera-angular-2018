@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisciplinaService } from '../disciplina.service';
 import { ProfessorService } from '../professor.service';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -12,16 +13,17 @@ import { ProfessorService } from '../professor.service';
 
 export class FormularioComponent implements OnInit {
 
-  public form: FormGroup;
-  public id;
-  public professores = []
-
   public segmentos = [
     { id: 'BACKEND', descricao: 'Back-end' },
     { id: 'FRONTEND', descricao: 'Front-end' },
     { id: 'MOBILE', descricao: 'Mobile' }
   ];
+  public form: FormGroup;
+  public id;
 
+  public professores = [];
+  public professorSelecionado;
+  
   constructor(
     private _formBuilder: FormBuilder,
     private _activeRouter: ActivatedRoute,
@@ -38,6 +40,23 @@ export class FormularioComponent implements OnInit {
       segmento: ['', Validators.required],
       urlLogo: ['']
     })
+  }
+
+  public adicionarProfessor () {
+    if (this.professorSelecionado) {
+      console.log('Lista de professores inicial: ', this.professores);
+
+      let listProfessores = <FormArray>this.form.get('professores');
+      this.professorSelecionado.selecionado = true;
+      listProfessores.value.push(this.professorSelecionado.id);
+      delete this.professorSelecionado;
+
+      console.log('Lista de professores final: ', this.professores);
+    }
+  }
+
+  public notFound (e) {
+    e.target.src = 'http://placehold.it/50/009688/ffffff/?text=Logo'
   }
 
   ngOnInit() {

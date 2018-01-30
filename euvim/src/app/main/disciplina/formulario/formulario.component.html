@@ -47,20 +47,32 @@
         Esse campo é obrigatório
       </mat-error>
     </mat-form-field>
-    <div fxFlex="5" fxFlexOffset="5">
-        <img style="width: 100%" [src]="form.controls['urlLogo'].value" alt="URL Logo">
+    <div fxFlex="5">
+        <img class="logo"
+          [src]="form.value.urlLogo"
+          alt="URL Logo"
+          (error)="notFound($event)">
     </div>
   </div>
 
   <div>
     <mat-form-field fxFlex="80">
-      <mat-select placeholder="Professores">
-        <mat-option *ngFor="let professor of professores" [value]="professor.id">
+      <mat-select
+        [(ngModel)]="professorSelecionado"
+        [ngModelOptions]="{ standalone: true }"
+        placeholder="Professores"
+      >
+        <mat-option *ngFor="let professor of professores" [value]="professor">
           {{ professor.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button type="button" fxFlexOffset="5" mat-mini-fab color="primary">
+    <button
+      (click)="adicionarProfessor()"
+      type="button"
+      mat-fab
+      color="primary"
+    >
       <mat-icon>add</mat-icon>
     </button>
   </div>
