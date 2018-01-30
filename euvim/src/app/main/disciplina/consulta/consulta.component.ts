@@ -47,7 +47,7 @@ export class ConsultaComponent implements OnInit {
   }
 
   public editar(id) {
-    this._router.navigate(['/main/usuario/editar', id]);
+    this._router.navigate(['/main/disciplina/editar', id]);
   }
 
   ngOnInit() {
