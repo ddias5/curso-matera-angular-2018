@@ -92,8 +92,8 @@
     <mat-list-item
       *ngFor="let professor of form.value.professores"
     >
-      <mat-icon matListIcon>person</mat-icon>
-      <h3 matLine>{{ professor }}</h3>
+      <mat-icon matListIcon>school</mat-icon>
+      <h3 matLine>{{ nomeProfessor(professor) }}</h3>
     </mat-list-item>
   </mat-list>
 

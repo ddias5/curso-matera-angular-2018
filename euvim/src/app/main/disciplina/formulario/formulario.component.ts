@@ -44,19 +44,19 @@ export class FormularioComponent implements OnInit {
 
   public adicionarProfessor () {
     if (this.professorSelecionado) {
-      console.log('Lista de professores inicial: ', this.professores);
-
       let listProfessores = <FormArray>this.form.get('professores');
       this.professorSelecionado.selecionado = true;
       listProfessores.value.push(this.professorSelecionado.id);
       delete this.professorSelecionado;
-
-      console.log('Lista de professores final: ', this.professores);
     }
   }
 
   public notFound (e) {
     e.target.src = 'http://placehold.it/50/009688/ffffff/?text=LOGO'
+  }
+
+  public nomeProfessor (id) {
+    return (this.professores.find(prof => prof.id == id)).nome
   }
 
   ngOnInit() {
