@@ -31,7 +31,11 @@
     </mat-form-field>
 
     <mat-form-field fxFlex="47">
-      <input autocomplete="dataTermino" matInput [matDatepicker]="dataTermino" formControlName="dataTermino" placeholder="Data término">
+      <input autocomplete="dataTermino" matInput
+        [matDatepicker]="dataTermino"
+        formControlName="dataTermino"
+        placeholder="Data término"
+      >
       <mat-datepicker-toggle matSuffix [for]="dataTermino"></mat-datepicker-toggle>
       <mat-datepicker #dataTermino></mat-datepicker>
       <mat-error *ngIf="form.controls['dataTermino'].hasError('required')">
@@ -62,9 +66,16 @@
         [ngModelOptions]="{ standalone: true }"
         placeholder="Professores"
       >
-        <mat-option *ngFor="let professor of professores" [value]="professor">
-          {{ professor.nome }}
-        </mat-option>
+        <ng-container
+          *ngFor="let professor of professores"
+        >
+          <mat-option
+            *ngIf="!professor.selecionado"
+            [value]="professor"
+          >
+            {{ professor.nome }}
+          </mat-option>
+        </ng-container>
       </mat-select>
     </mat-form-field>
     <button
@@ -77,7 +88,20 @@
     </button>
   </div>
 
-  <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+  <mat-list>
+    <mat-list-item
+      *ngFor="let professor of form.value.professores"
+    >
+      <mat-icon matListIcon>person</mat-icon>
+      <h3 matLine>{{ professor }}</h3>
+    </mat-list-item>
+  </mat-list>
+
+  <div
+    fxFlex="100"
+    fxLayout="row"
+    fxLayoutAlign="space-between"
+  >
     <button (click)="salvar()" [disabled]="!form.valid" mat-raised-button color="primary" type="button">
       {{ id ? 'Alterar' : 'Adicionar' }}
     </button>

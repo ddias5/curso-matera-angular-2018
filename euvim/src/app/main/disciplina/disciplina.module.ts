@@ -18,7 +18,8 @@ import {
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MAT_DATE_LOCALE
+  MAT_DATE_LOCALE,
+  MatListModule
 } from '@angular/material';
 import { DisciplinaService } from './disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -43,7 +44,8 @@ import { ProfessorService } from './professor.service';
     MatInputModule,
     FlexLayoutModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatListModule
   ],
   providers: [
     DisciplinaService,
