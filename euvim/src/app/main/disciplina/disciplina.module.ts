@@ -15,12 +15,16 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE
 } from '@angular/material';
 import { DisciplinaService } from './disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { InstrutorService } from './instrutor.service';
 
 @NgModule({
   imports: [
@@ -37,12 +41,16 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatSelectModule,
     MatButtonModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     DisciplinaService,
     FormBuilder,
-    HttpClient
+    HttpClient,
+    InstrutorService,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-br' }
   ],
   declarations: [ConsultaComponent, FormularioComponent]
 })

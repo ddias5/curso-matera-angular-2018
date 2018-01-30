@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisciplinaService } from '../disciplina.service';
+import { InstrutorService } from '../instrutor.service';
 
 @Component({
   selector: 'app-formulario',
@@ -13,6 +14,7 @@ export class FormularioComponent implements OnInit {
 
   public form: FormGroup;
   public id;
+  public instrutores = []
 
   public segmentos = [
     { id: 'BACKEND', descricao: 'Back-end' },
@@ -24,6 +26,7 @@ export class FormularioComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _activeRouter: ActivatedRoute,
     private _disciplinaService: DisciplinaService,
+    private _instrutorService: InstrutorService,
     private _router: Router
   ) {
     this.form = this._formBuilder.group({
@@ -38,6 +41,10 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._instrutorService.instrutores()
+      .subscribe(ok => {
+        this.instrutores = ok;
+      })
     this._activeRouter.params.subscribe(params => {
       this.id = params['id'];
       if (this.id) {

@@ -22,34 +22,41 @@
 
   <div fxLayoutAlign="space-between">
     <mat-form-field fxFlex="47">
-      <input autocomplete="dataInicio" matInput formControlName="dataInicio" placeholder="Data início">
+      <input autocomplete="dataInicio" matInput [matDatepicker]="dataInicio" formControlName="dataInicio" placeholder="Data início">
+      <mat-datepicker-toggle matSuffix [for]="dataInicio"></mat-datepicker-toggle>
+      <mat-datepicker #dataInicio></mat-datepicker>
       <mat-error *ngIf="form.controls['dataInicio'].hasError('required')">
         Esse campo é obrigatório
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="47">
-      <input autocomplete="dataTermino" matInput formControlName="dataTermino" placeholder="Data término">
+      <input autocomplete="dataTermino" matInput [matDatepicker]="dataTermino" formControlName="dataTermino" placeholder="Data término">
+      <mat-datepicker-toggle matSuffix [for]="dataTermino"></mat-datepicker-toggle>
+      <mat-datepicker #dataTermino></mat-datepicker>
       <mat-error *ngIf="form.controls['dataTermino'].hasError('required')">
         Esse campo é obrigatório
       </mat-error>
     </mat-form-field>
   </div>
 
-  <div fxLayout="column">
+  <div fxLayout="row">
     <mat-form-field fxFlex="80">
       <input autocomplete="urlLogo" matInput formControlName="urlLogo" placeholder="URL logo">
       <mat-error *ngIf="form.controls['urlLogo'].hasError('required')">
         Esse campo é obrigatório
       </mat-error>
     </mat-form-field>
+    <div fxFlex="5" fxFlexOffset="5">
+        <img style="width: 100%" [src]="form.controls['urlLogo'].value" alt="URL Logo">
+    </div>
   </div>
 
   <div>
     <mat-form-field fxFlex="80">
       <mat-select placeholder="Instrutores">
-        <mat-option>
-          Null
+        <mat-option *ngFor="let instrutor of instrutores" [value]="instrutor.id">
+          {{ instrutor.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
