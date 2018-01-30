@@ -68,14 +68,14 @@ export class FormularioComponent implements OnInit {
           .editar(this.form.value)
           .subscribe(ok => {
             this.form.reset();
-            this._router.navigate(['/main/usuario/consulta']);
+            this._router.navigate(['/main/disciplina/consulta']);
           }, err => console.log(err))
       } else {
         this._disciplinaService
           .adicionar(this.form.value)
           .subscribe(ok => {
             this.form.reset();
-            this._router.navigate(['/main/usuario/consulta']);
+            this._router.navigate(['/main/disciplina/consulta']);
           })
       }
     }
