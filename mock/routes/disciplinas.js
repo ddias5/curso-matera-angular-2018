@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
     req.checkBody("instrutores", "Instrutores obrigatório").exists().notEmpty();
     req.checkBody("dataInicio", "Data início obrigatório").exists().notEmpty();
     req.checkBody("dataTermino", "Data término obrigatório").exists().notEmpty();
-    req.checkBody("segmento", "Perfil tem que ser entre ['Front-end', 'Mobile', 'Backend']").isIn(['Front-end', 'Mobile', 'Backend']);
+    req.checkBody("segmento", "Perfil tem que ser entre ['FRONTEND', 'MOBILE', 'BACKEND']").isIn(['FRONTEND', 'MOBILE', 'BACKEND']);
     var errors = req.validationErrors();
     if (errors.length > 0) {
       res.status(400).json(errors);

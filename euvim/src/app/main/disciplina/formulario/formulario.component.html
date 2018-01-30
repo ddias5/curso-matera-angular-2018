@@ -92,11 +92,20 @@
     <mat-list-item
       *ngFor="let professor of form.value.professores"
     >
-      <mat-icon matListIcon>school</mat-icon>
-      <h3 matLine>{{ nomeProfessor(professor) }}</h3>
+      <div matListIcon>
+        <button
+          type="button"
+          (click)="removerProfessor(professor)"
+          mat-mini-fab
+          color="warn"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <h3 style="line-height: 40px" matLine>{{ nomeProfessor(professor) }}</h3>
     </mat-list-item>
   </mat-list>
-
+  <br>
   <div
     fxFlex="100"
     fxLayout="row"

@@ -51,6 +51,15 @@ export class FormularioComponent implements OnInit {
     }
   }
 
+  public removerProfessor (id) {
+    let listProfessores = <FormArray>this.form.get('professores');    
+    let index = listProfessores.value.findIndex(prof => prof == id)
+    if (index > -1) {
+      listProfessores.value.splice(index, 1);
+      this.professores.find(prof => prof.id == id).selecionado = false;
+    }
+  }
+
   public notFound (e) {
     e.target.src = 'http://placehold.it/50/009688/ffffff/?text=LOGO'
   }
