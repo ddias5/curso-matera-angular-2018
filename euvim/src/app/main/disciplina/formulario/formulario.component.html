@@ -54,9 +54,9 @@
 
   <div>
     <mat-form-field fxFlex="80">
-      <mat-select placeholder="Instrutores">
-        <mat-option *ngFor="let instrutor of instrutores" [value]="instrutor.id">
-          {{ instrutor.nome }}
+      <mat-select placeholder="Professores">
+        <mat-option *ngFor="let professor of professores" [value]="professor.id">
+          {{ professor.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>

@@ -17,7 +17,7 @@ export class ConsultaComponent implements OnInit {
 
   public displayedColumns = [
     'descricao',
-    'instrutores',
+    'professores',
     'dataInicio',
     'dataTermino',
     'segmento',

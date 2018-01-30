@@ -24,7 +24,7 @@ import { DisciplinaService } from './disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { InstrutorService } from './instrutor.service';
+import { ProfessorService } from './professor.service';
 
 @NgModule({
   imports: [
@@ -49,7 +49,7 @@ import { InstrutorService } from './instrutor.service';
     DisciplinaService,
     FormBuilder,
     HttpClient,
-    InstrutorService,
+    ProfessorService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-br' }
   ],
   declarations: [ConsultaComponent, FormularioComponent]
