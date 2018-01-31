@@ -36,20 +36,22 @@
         <button
           mat-icon-button
           (click)="exibirQrcode(element)"
+          color="primary"
         >
-          <mat-icon>smartphone</mat-icon>
+          <mat-icon>
+            screen_lock_portrait
+          </mat-icon>
         </button>
         <button
           (click)="editar(element.id)"
           mat-icon-button
           color="primary"
-          mdTooltip="Editar"
         >
           <mat-icon class="mat-24" aria-label="Editar">
             edit
           </mat-icon>
         </button>
-        <button (click)="excluir(element.id)" mat-icon-button color="danger" mdTooltip="Excluir">
+        <button (click)="excluir(element.id)" mat-icon-button color="danger">
           <mat-icon class="mat-24" aria-label="Excluir">
             delete
           </mat-icon>

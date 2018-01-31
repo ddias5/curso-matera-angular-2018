@@ -56,11 +56,14 @@ export class ConsultaComponent implements OnInit {
     })
   }
 
-  public exibirQrcode(info) {
-    info = JSON.stringify(info);
+  public exibirQrcode(disciplina) {
     let dialogRef = this.dialog.open(QrcodeComponent, {
       width: '300px',
-      data: { info }
+      data: {
+        id: disciplina.id,
+        descricao: disciplina.descricao,
+        data: new Date()
+      }
     })
   }
   

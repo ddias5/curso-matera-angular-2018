@@ -1,3 +1,7 @@
 <div style="text-align: center">
+  <h6 mat-dialog-title>
+    Presença na disciplina {{ data.descricao }} <br>
+    no dia {{ data.data | date:'dd/MM/yyyy'}}
+  </h6>
   <img [src]="qrcodeDisciplina" alt="QR Code">
 </div>
