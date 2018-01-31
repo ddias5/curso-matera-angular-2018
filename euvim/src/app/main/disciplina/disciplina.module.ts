@@ -26,6 +26,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { ProfessorService } from './professor.service';
+import { ProfessorComponent } from './professor/professor.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { ProfessorService } from './professor.service';
     ProfessorService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-br' }
   ],
-  declarations: [ConsultaComponent, FormularioComponent]
+  entryComponents: [ProfessorComponent],
+  declarations: [ConsultaComponent, FormularioComponent, ProfessorComponent]
 })
 export class DisciplinaModule { }
