@@ -4,7 +4,7 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 
 import { Observable } from 'rxjs/Observable';
-import { DisciplinaService } from '../disciplina.service';
+import { DisciplinaService } from './../../services/disciplina.service';
 import { Router } from '@angular/router';
 import { ProfessorComponent } from '../professor/professor.component';
 import { QrcodeComponent } from '../qrcode/qrcode.component';

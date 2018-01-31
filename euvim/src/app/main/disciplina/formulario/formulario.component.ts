@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DisciplinaService } from '../disciplina.service';
+import { DisciplinaService } from './../../services/disciplina.service';
 import { ProfessorService } from '../professor.service';
 import { FormArray } from '@angular/forms';
 

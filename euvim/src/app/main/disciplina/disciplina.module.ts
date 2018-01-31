@@ -22,7 +22,7 @@ import {
   MatListModule,
   MatDialogModule
 } from '@angular/material';
-import { DisciplinaService } from './disciplina.service';
+import { DisciplinaService } from './../services/disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
