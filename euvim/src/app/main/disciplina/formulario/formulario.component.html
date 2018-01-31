@@ -111,7 +111,13 @@
     fxLayout="row"
     fxLayoutAlign="space-between"
   >
-    <button (click)="salvar()" [disabled]="!form.valid" mat-raised-button color="primary" type="button">
+    <button
+      (click)="salvar()"
+      [disabled]="!form.valid || form.value.professores.length < 2"
+      mat-raised-button
+      color="primary"
+      type="button"
+    >
       {{ id ? 'Alterar' : 'Adicionar' }}
     </button>
     <button type="button" mat-raised-button color="warn" routerLink="/main/disciplina/consulta">
