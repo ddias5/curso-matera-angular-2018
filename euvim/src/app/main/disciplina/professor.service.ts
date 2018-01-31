@@ -15,4 +15,8 @@ export class ProfessorService {
     let params = new HttpParams().set('tipo', 'PROFESSOR');
     return this._httpClient.get<Array<any>>(this._url, { params });
   }
+
+  public obter(id) {
+    return this._httpClient.get<Array<any>>(`${this._url}/${id}`);
+  }
 }

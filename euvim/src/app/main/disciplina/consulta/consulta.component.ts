@@ -1,11 +1,12 @@
 import 'rxjs/add/observable/of';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 
 import { Observable } from 'rxjs/Observable';
 import { DisciplinaService } from '../disciplina.service';
 import { Router } from '@angular/router';
+import { ProfessorComponent } from '../professor/professor.component';
 
 @Component({
   selector: 'app-consulta',
@@ -27,7 +28,8 @@ export class ConsultaComponent implements OnInit {
 
   constructor(
     private _disciplinaService: DisciplinaService,
-    private _router: Router
+    private _router: Router,
+    private dialog: MatDialog
   ) { }
 
   private obterLista() {
@@ -46,6 +48,13 @@ export class ConsultaComponent implements OnInit {
       });
   }
 
+  public exibirProfessores(professores) {
+    let dialogRef = this.dialog.open(ProfessorComponent, {
+      width: '300px',
+      data: { professores }
+    })
+  }
+  
   public editar(id) {
     this._router.navigate(['/main/disciplina/editar', id]);
   }

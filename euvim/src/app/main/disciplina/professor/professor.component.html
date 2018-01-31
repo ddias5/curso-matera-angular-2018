@@ -1,3 +1,10 @@
-<p>
-  professor works!
-</p>
+<h3>Lista de professores</h3>
+
+<mat-list>
+  <ng-container *ngFor="let prof of listaProfessores">
+    <mat-list-item>
+      {{ prof.nome }} - {{ prof.email }}
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>

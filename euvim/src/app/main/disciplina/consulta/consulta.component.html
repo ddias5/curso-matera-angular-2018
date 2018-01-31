@@ -6,7 +6,15 @@
     </ng-container>
     <ng-container matColumnDef="professores">
       <mat-header-cell *matHeaderCellDef>Professores</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.professores.length}}</mat-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          color="primary"
+          mat-icon-button
+          (click)="exibirProfessores(element.professores)"
+        >
+          {{ element.professores.length }}
+        </button>
+      </mat-cell>
     </ng-container>
     <ng-container matColumnDef="dataInicio">
       <mat-header-cell *matHeaderCellDef>Data início</mat-header-cell>

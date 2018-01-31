@@ -5,40 +5,39 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class DisciplinaService {
 
-  private _urlDisciplina = environment.url + '/api/v1/disciplinas';
+  private url = environment.url + '/api/v1/disciplinas';
 
   constructor(
     private _httpClient: HttpClient
   ) { }
 
-  public carregar(id) {
-    return this._httpClient.get<any>(`${this._urlDisciplina}/${id}`)
-  }
-
   public adicionar(disciplina) {
-    return this._httpClient.post(this._urlDisciplina, disciplina, {
+    return this._httpClient.post(this.url, disciplina, {
       responseType: 'text'
     });
   }
 
   public excluir(id) {
     return this._httpClient.delete(
-      `${this._urlDisciplina}/${id}`,
+      `${this.url}/${id}`,
       { responseType: 'text' }
-    )
+    );
   }
 
   public editar(disciplina) {
     return this._httpClient
       .put(
-        `${this._urlDisciplina}/${disciplina.id}`,
+        `${this.url}/${disciplina.id}`,
         disciplina,
         { responseType: 'text' }
       );
   }
 
   public listar() {
-    return this._httpClient.get<Array<any>>(this._urlDisciplina)
+    return this._httpClient.get<Array<any>>(this.url);
   }
 
+  public obter(id) {
+    return this._httpClient.get<Array<any>>(`${this.url}/${id}`);
+  }
 }

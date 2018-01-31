@@ -19,7 +19,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MAT_DATE_LOCALE,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 import { DisciplinaService } from './disciplina.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -46,7 +47,8 @@ import { ProfessorComponent } from './professor/professor.component';
     FlexLayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [
     DisciplinaService,
@@ -56,6 +58,6 @@ import { ProfessorComponent } from './professor/professor.component';
     { provide: MAT_DATE_LOCALE, useValue: 'pt-br' }
   ],
   entryComponents: [ProfessorComponent],
-  declarations: [ConsultaComponent, FormularioComponent, ProfessorComponent]
+  declarations: [ConsultaComponent, FormularioComponent, ProfessorComponent, ProfessorComponent]
 })
 export class DisciplinaModule { }
