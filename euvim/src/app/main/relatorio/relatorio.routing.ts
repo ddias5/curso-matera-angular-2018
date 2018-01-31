@@ -12,4 +12,5 @@ import { PresencaComponent } from './presenca/presenca.component';
     ])
   ]
 })
+
 export class RelatorioRouting { }

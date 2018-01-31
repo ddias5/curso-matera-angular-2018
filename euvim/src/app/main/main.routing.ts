@@ -18,6 +18,10 @@ import { FormularioComponent } from './usuario/formulario/formulario.component';
           {
             path: 'disciplina',
             loadChildren: './disciplina/disciplina.module#DisciplinaModule'
+          },
+          {
+            path: 'relatorio',
+            loadChildren: './relatorio/relatorio.module#RelatorioModule'
           }
         ]
       }

@@ -15,8 +15,6 @@ import {
   MatButtonModule,
   MatFormFieldModule,
 } from '@angular/material';
-import { RelatorioComponent } from './relatorio/relatorio.component';
-import { PresencaComponent } from './relatorio/presenca/presenca.component';
 
 @NgModule({
   imports: [
@@ -32,10 +30,6 @@ import { PresencaComponent } from './relatorio/presenca/presenca.component';
     MatToolbarModule,
     MatButtonModule
   ],
-  declarations: [
-    MainComponent,
-    RelatorioComponent,
-    PresencaComponent
-  ]
+  declarations: [MainComponent]
 })
 export class MainModule { }
