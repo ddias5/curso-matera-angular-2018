@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { DisciplinaService } from '../disciplina.service';
 import { Router } from '@angular/router';
 import { ProfessorComponent } from '../professor/professor.component';
+import { QrcodeComponent } from '../qrcode/qrcode.component';
 
 @Component({
   selector: 'app-consulta',
@@ -52,6 +53,14 @@ export class ConsultaComponent implements OnInit {
     let dialogRef = this.dialog.open(ProfessorComponent, {
       width: '300px',
       data: { professores }
+    })
+  }
+
+  public exibirQrcode(info) {
+    info = JSON.stringify(info);
+    let dialogRef = this.dialog.open(QrcodeComponent, {
+      width: '300px',
+      data: { info }
     })
   }
   

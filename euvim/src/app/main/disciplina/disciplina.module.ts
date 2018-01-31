@@ -28,6 +28,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { ProfessorService } from './professor.service';
 import { ProfessorComponent } from './professor/professor.component';
+import { QrcodeComponent } from './qrcode/qrcode.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,7 @@ import { ProfessorComponent } from './professor/professor.component';
     ProfessorService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-br' }
   ],
-  entryComponents: [ProfessorComponent],
-  declarations: [ConsultaComponent, FormularioComponent, ProfessorComponent, ProfessorComponent]
+  entryComponents: [ProfessorComponent, QrcodeComponent],
+  declarations: [ConsultaComponent, FormularioComponent, QrcodeComponent, ProfessorComponent, ProfessorComponent, QrcodeComponent]
 })
 export class DisciplinaModule { }

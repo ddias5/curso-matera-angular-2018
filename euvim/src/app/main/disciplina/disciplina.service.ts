@@ -6,10 +6,16 @@ import { environment } from '../../../environments/environment';
 export class DisciplinaService {
 
   private url = environment.url + '/api/v1/disciplinas';
+  private urlQr = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
 
   constructor(
     private _httpClient: HttpClient
   ) { }
+
+  public gerarQr(info) {
+    return this._httpClient
+      .get(`${this.urlQr}${info}`);
+  }
 
   public adicionar(disciplina) {
     return this._httpClient.post(this.url, disciplina, {
@@ -37,7 +43,7 @@ export class DisciplinaService {
     return this._httpClient.get<Array<any>>(this.url);
   }
 
-  public obter(id) {
+  public carregar(id) {
     return this._httpClient.get<Array<any>>(`${this.url}/${id}`);
   }
 }

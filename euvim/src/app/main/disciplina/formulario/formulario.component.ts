@@ -85,8 +85,8 @@ export class FormularioComponent implements OnInit {
             let resultado = Object.assign({}, retorno);
             resultado.professores = [];
             this.form.setValue(resultado);
-            retorno.professores.forEach(el => {
-              this.professorSelecionado = this.professores.find(prof => prof.id == el);
+            retorno.professores.forEach(id => {
+              this.professorSelecionado = this.professores.find(prof => prof.id == id);
               this.adicionarProfessor();
             });
           });

@@ -34,6 +34,12 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let element" fxFlex="10" class="buttons">
         <button
+          mat-icon-button
+          (click)="exibirQrcode(element)"
+        >
+          <mat-icon>smartphone</mat-icon>
+        </button>
+        <button
           (click)="editar(element.id)"
           mat-icon-button
           color="primary"
