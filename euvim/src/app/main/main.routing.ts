@@ -7,7 +7,8 @@ import { FormularioComponent } from './usuario/formulario/formulario.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'main', 
+      {
+        path: 'main',
         component: MainComponent,
         children: [
           {

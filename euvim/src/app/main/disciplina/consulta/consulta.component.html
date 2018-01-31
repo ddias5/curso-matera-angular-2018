@@ -25,8 +25,15 @@
         Ações
       </mat-header-cell>
       <mat-cell *matCellDef="let element" fxFlex="10" class="buttons">
-        <button (click)="editar(element.id)" mat-icon-button color="primary" mdTooltip="Editar">
-          <mat-icon class="mat-24" aria-label="Editar">edit</mat-icon>
+        <button
+          (click)="editar(element.id)"
+          mat-icon-button
+          color="primary"
+          mdTooltip="Editar"
+        >
+          <mat-icon class="mat-24" aria-label="Editar">
+            edit
+          </mat-icon>
         </button>
         <button (click)="excluir(element.id)" mat-icon-button color="danger" mdTooltip="Excluir">
           <mat-icon class="mat-24" aria-label="Excluir">

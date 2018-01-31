@@ -23,7 +23,7 @@ export class FormularioComponent implements OnInit {
 
   public professores = [];
   public professorSelecionado;
-  
+
   constructor(
     private _formBuilder: FormBuilder,
     private _activeRouter: ActivatedRoute,
@@ -42,7 +42,7 @@ export class FormularioComponent implements OnInit {
     })
   }
 
-  public adicionarProfessor () {
+  public adicionarProfessor() {
     if (this.professorSelecionado) {
       let listProfessores = <FormArray>this.form.get('professores');
       this.professorSelecionado.selecionado = true;
@@ -51,8 +51,8 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-  public removerProfessor (id) {
-    let listProfessores = <FormArray>this.form.get('professores');    
+  public removerProfessor(id) {
+    let listProfessores = <FormArray>this.form.get('professores');
     let index = listProfessores.value.findIndex(prof => prof == id)
     if (index > -1) {
       listProfessores.value.splice(index, 1);
@@ -60,11 +60,13 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-  public notFound (e) {
+
+
+  public notFound(e) {
     e.target.src = 'http://placehold.it/50/009688/ffffff/?text=LOGO'
   }
 
-  public nomeProfessor (id) {
+  public nomeProfessor(id) {
     return (this.professores.find(prof => prof.id == id)).nome
   }
 
@@ -72,19 +74,24 @@ export class FormularioComponent implements OnInit {
     this._professorService.professores()
       .subscribe(ok => {
         this.professores = ok;
+        this.obterRegistroEdicao();
       })
+  }
+
+  private obterRegistroEdicao() {
     this._activeRouter.params.subscribe(params => {
       this.id = params['id'];
       if (this.id) {
         this._disciplinaService.carregar(this.id)
           .subscribe(retorno => {
-            retorno['senha'] = null;
-            retorno['confirmacao'] = null;
-            delete retorno.urlFoto;
-            this.form.get('senha').setValidators(null);
-            this.form.get('confirmacao').setValidators(null);
-            this.form.setValue(retorno);
-          })
+            let resultado = Object.assign({}, retorno);
+            resultado.professores = [];
+            this.form.setValue(resultado);
+            retorno.professores.forEach(el => {
+              this.professorSelecionado = this.professores.find(prof => prof.id == el);
+              this.adicionarProfessor();
+            });
+          });
       }
     });
   }
