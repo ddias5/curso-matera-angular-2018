@@ -60,8 +60,6 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-
-
   public notFound(e) {
     e.target.src = 'http://placehold.it/50/009688/ffffff/?text=LOGO'
   }
@@ -115,7 +113,6 @@ export class FormularioComponent implements OnInit {
       }
     }
   }
-
 }
 
 export interface Perfil {
