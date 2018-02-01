@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.erro = null;
     this.login = false;
   }

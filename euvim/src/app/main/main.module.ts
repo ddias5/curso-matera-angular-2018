@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
-
-import { MainRouting } from './main.routing';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule, MatSidenavModule, MatCardModule, MatListModule, MatToolbarModule, MatButtonModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { MatIconModule, MatSidenavModule, MatCardModule, MatListModule, MatToolbarModule, MatButtonModule } from '@angular/material';
+import { MainRouting } from './main.routing';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   imports: [
@@ -21,6 +20,9 @@ import { MatIconModule, MatSidenavModule, MatCardModule, MatListModule, MatToolb
     MatListModule,
     MatToolbarModule,
     MatButtonModule
+  ],
+  providers: [
+    AuthGuard
   ],
   declarations: [MainComponent]
 })
