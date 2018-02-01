@@ -45,5 +45,6 @@ export class DisciplinaService {
 
   public carregar(id) {
     return this._httpClient.get<Array<any>>(`${this.url}/${id}`);
+    
   }
 }

@@ -82,10 +82,11 @@ export class FormularioComponent implements OnInit {
       if (this.id) {
         this._disciplinaService.carregar(this.id)
           .subscribe(retorno => {
-            let resultado = Object.assign({}, retorno);
+            let resultado = <any>Object.assign({}, retorno);
             resultado.professores = [];
             this.form.setValue(resultado);
-            retorno.professores.forEach(id => {
+            let item = <any> Object.assign({}, retorno);
+            item.professores.forEach(id => {
               this.professorSelecionado = this.professores.find(prof => prof.id == id);
               this.adicionarProfessor();
             });
