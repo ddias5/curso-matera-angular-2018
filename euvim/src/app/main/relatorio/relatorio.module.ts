@@ -4,12 +4,13 @@ import { PresencaComponent } from './presenca/presenca.component';
 import { RouterModule } from '@angular/router';
 import { RelatorioRouting } from './relatorio.routing';
 import { RelatorioService } from './relatorio.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DisciplinaService } from '../services/disciplina.service';
 import { MAT_DATE_LOCALE, MatExpansionModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatSelectModule, MatOptionModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatDialogModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ItemPresencaComponent } from './presenca/item-presenca/item-presenca.component';
+import { AuthInterceptorService } from '../services/auth.interceptor.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { ItemPresencaComponent } from './presenca/item-presenca/item-presenca.co
     MatInputModule,
     FlexLayoutModule,
     MatTooltipModule,
-    MatSelectModule, 
+    MatSelectModule,
     MatOptionModule,
     ReactiveFormsModule,
     FormsModule,
@@ -34,11 +35,17 @@ import { ItemPresencaComponent } from './presenca/item-presenca/item-presenca.co
     HttpClientModule
   ],
   providers: [
-    HttpClient, 
-    FormBuilder, 
-    DisciplinaService, 
-    RelatorioService , 
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-br'}
+    AuthInterceptorService,
+    HttpClient,
+    FormBuilder,
+    DisciplinaService,
+    RelatorioService,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-br' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   declarations: [PresencaComponent, ItemPresencaComponent]
 })

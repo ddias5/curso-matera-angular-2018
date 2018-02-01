@@ -10,6 +10,8 @@ import { ReactiveFormsModule, FormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UsuarioService } from './usuario.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from '../services/auth.interceptor.service';
 
 @NgModule({
   imports: [
@@ -32,7 +34,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   providers: [
     FormBuilder,
     UsuarioService,
-    HttpClient
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   declarations: [ConsultaComponent, FormularioComponent]
 })
