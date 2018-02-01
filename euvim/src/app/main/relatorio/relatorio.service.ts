@@ -10,11 +10,15 @@ export class RelatorioService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  listarPresencaPorDisciplina(filter) {
+  public listarPresencaPorDisciplina(filter) {
     let httpParams = new HttpParams()
       .append("dataInicio", moment(filter.dataInicio).format("YYYY-MM-DD"))
       .append("dataFim", moment(filter.dataFim).format("YYYY-MM-DD"));
-    return this._httpClient.get<Array<any>>(this._urlRelatorio + "/" + filter.disciplina, { params: httpParams });
+
+    return this._httpClient
+      .get<Array<any>>(this._urlRelatorio + "/" + filter.disciplina, {
+        params: httpParams
+      });
   }
 
 }
