@@ -22,6 +22,7 @@ import { PresencaComponent } from './presenca/presenca.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DisciplinaService } from '../services/disciplina.service';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     HttpClientModule
   ],
+  providers: [DisciplinaService],
   declarations: [RelatorioComponent, PresencaComponent]
 })
 export class RelatorioModule { }
