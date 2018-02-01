@@ -17,7 +17,7 @@ export class ItemPresencaComponent implements OnInit {
   @Input()
   private periodoFinal: Date;
   @Input()
-  private presencas: Array<Date>;
+  private presencas: Array<String>;
 
   constructor() { }
 
@@ -36,7 +36,7 @@ export class ItemPresencaComponent implements OnInit {
       if (dataCurso.weekday() > 0 && dataCurso.weekday() < 6) {
         this.presenca.push({
           data: dataCurso.toDate(),
-          presente: this.presenca.includes(dataCurso.format("YYYY-MM-DD"))
+          presente: this.presencas.includes(dataCurso.format("YYYY-MM-DD"))
         });
       }
       dataCurso.add(1, 'days');

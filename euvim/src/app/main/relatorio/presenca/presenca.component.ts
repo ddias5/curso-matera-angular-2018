@@ -9,7 +9,8 @@ import { RelatorioService } from '../relatorio.service';
   styleUrls: ['./presenca.component.scss']
 })
 export class PresencaComponent implements OnInit {
-
+  
+  disciplina: any;
   public disciplinas=[];
   public filtred: boolean;
   public relatorio=[];
@@ -23,6 +24,7 @@ export class PresencaComponent implements OnInit {
       dataInicio: [null, Validators.required],
       dataFim: [null, Validators.required]
     });
+    
   }
 
   ngOnInit() {
@@ -41,6 +43,8 @@ export class PresencaComponent implements OnInit {
     this._relatorioService.listarPresencaPorDisciplina(this.form.value).subscribe(suc=>{
       this.relatorio = suc;
     });
+    this.disciplina = this.disciplinas.find(item =>
+      item.id = this.form.value.disciplina);
   }
 
 }
