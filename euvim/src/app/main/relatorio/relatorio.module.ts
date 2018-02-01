@@ -23,6 +23,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DisciplinaService } from '../services/disciplina.service';
+import { RelatorioService } from './relatorio.service';
 
 @NgModule({
   imports: [
@@ -46,7 +47,7 @@ import { DisciplinaService } from '../services/disciplina.service';
     MatExpansionModule,
     HttpClientModule
   ],
-  providers: [DisciplinaService],
+  providers: [DisciplinaService, RelatorioService],
   declarations: [RelatorioComponent, PresencaComponent]
 })
 export class RelatorioModule { }
