@@ -9,6 +9,7 @@ import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DisciplinaService } from '../services/disciplina.service';
 import { MAT_DATE_LOCALE, MatExpansionModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTooltipModule, MatSelectModule, MatOptionModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatDialogModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ItemPresencaComponent } from './presenca/item-presenca/item-presenca.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RelatorioService , 
     {provide: MAT_DATE_LOCALE, useValue: 'pt-br'}
   ],
-  declarations: [PresencaComponent]
+  declarations: [PresencaComponent, ItemPresencaComponent]
 })
 export class RelatorioModule { }

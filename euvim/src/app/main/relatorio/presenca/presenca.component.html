@@ -59,25 +59,7 @@
             Frequência {{item.frequencia}}%
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-list>
-          <h3 matSubheader>Presenças</h3>
-          <mat-list-item>
-            <mat-icon matListIcon>check</mat-icon>
-            <h3 matLine> Presente </h3>
-            <p matLine>
-              <span> DD/MM/YYYY </span>
-            </p>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>
-              <mat-icon matListIcon>remove</mat-icon>
-              <h3 matLine> Ausente </h3>
-              <p matLine>
-                <span> DD/MM/YYYY </span>
-              </p>
-            </mat-list-item>
-          <mat-divider></mat-divider>
-        </mat-list>
+        <app-item-presenca></app-item-presenca>
       </mat-expansion-panel>
     </mat-accordion>
   </div>
