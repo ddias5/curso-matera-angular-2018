@@ -11,6 +11,7 @@ import { MAT_DATE_LOCALE, MatExpansionModule, MatIconModule, MatButtonModule, Ma
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ItemPresencaComponent } from './presenca/item-presenca/item-presenca.component';
 import { AuthInterceptorService } from '../services/auth.interceptor.service';
+import { RequestErrorModule } from '../../request-error/request-error.module';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { AuthInterceptorService } from '../services/auth.interceptor.service';
     MatListModule,
     MatDialogModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    RequestErrorModule
   ],
   providers: [
     AuthInterceptorService,

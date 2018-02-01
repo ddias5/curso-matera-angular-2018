@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProfessorComponent } from './professor/professor.component';
 import { QrcodeComponent } from './qrcode/qrcode.component';
 import { AuthInterceptorService } from '../services/auth.interceptor.service';
+import { RequestErrorModule } from '../../request-error/request-error.module';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { AuthInterceptorService } from '../services/auth.interceptor.service';
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RequestErrorModule
   ],
   providers: [
     FormBuilder,

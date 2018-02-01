@@ -12,6 +12,7 @@ import { UsuarioService } from './usuario.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from '../services/auth.interceptor.service';
+import { RequestErrorModule } from '../../request-error/request-error.module';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { AuthInterceptorService } from '../services/auth.interceptor.service';
     MatOptionModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RequestErrorModule
   ],
   providers: [
     FormBuilder,
