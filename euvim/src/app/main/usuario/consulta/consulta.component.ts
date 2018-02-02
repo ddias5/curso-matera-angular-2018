@@ -24,7 +24,10 @@ export class ConsultaComponent implements OnInit {
   };
 
   public noResults$ = false;
-  constructor(private _usuarioService: UsuarioService, private _router: Router) { }
+  constructor(
+    private _usuarioService: UsuarioService,
+    private _router: Router
+  ) { }
   
   ngOnInit() {
     this.atualizarListaDeUsuarios();
@@ -41,6 +44,7 @@ export class ConsultaComponent implements OnInit {
   }
 
   private atualizarListaDeUsuarios(){
+    // TODO: implementar loading
     this._usuarioService.listar().subscribe(suc => {
       this.noResults$ = suc.length == 0;
       this.dataSource = new MatTableDataSource(suc);
