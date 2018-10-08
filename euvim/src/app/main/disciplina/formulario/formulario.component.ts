@@ -114,6 +114,11 @@ export class FormularioComponent implements OnInit {
       }
     }
   }
+  
+  trackByFn(index, item) {    
+   return item.id;
+  }
+
 }
 
 export interface Perfil {
