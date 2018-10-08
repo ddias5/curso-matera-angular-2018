@@ -3,7 +3,7 @@
   <div fxLayoutAlign="space-between">
     <mat-form-field fxFlex="47">
       <mat-select formControlName="segmento" name="item" placeholder="Segmento">
-        <mat-option *ngFor="let segmento of segmentos" [value]="segmento.id">
+        <mat-option *ngFor="let segmento of segmentos; trackBy: trackByFn" [value]="segmento.id">
           {{ segmento.descricao }}
         </mat-option>
       </mat-select>
