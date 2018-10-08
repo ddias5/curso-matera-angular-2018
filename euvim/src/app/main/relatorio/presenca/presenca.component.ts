@@ -18,15 +18,16 @@ export class PresencaComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _disciplinaService: DisciplinaService,
     private _relatorioService: RelatorioService
-  ) {
+  ) { }
+
+  ngOnInit() {
+    
     this.form = this._formBuilder.group({
       disciplina: [''],
       dataInicio: [''],
-      dataFim: [''],
-    })
-  }
-
-  ngOnInit() {
+      dataFim: ['']
+    });
+    
     this._disciplinaService
       .listar()
       .subscribe(res => {
